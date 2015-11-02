@@ -46,7 +46,7 @@ Often when you're using object level permissions you'll also want to [filter the
 
 The default permission policy may be set globally, using the `DEFAULT_PERMISSION_CLASSES` setting.  For example.
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'DEFAULT_PERMISSION_CLASSES': (
             'rest_framework2.permissions.IsAuthenticated',
         )

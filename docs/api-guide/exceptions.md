@@ -64,13 +64,13 @@ In order to alter the style of the response, you could write the following custo
 
 The exception handler must also be configured in your settings, using the `EXCEPTION_HANDLER` setting key. For example:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'EXCEPTION_HANDLER': 'my_project.my_app.utils.custom_exception_handler'
     }
 
 If not specified, the `'EXCEPTION_HANDLER'` setting defaults to the standard exception handler provided by REST framework:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'EXCEPTION_HANDLER': 'rest_framework2.views.exception_handler'
     }
 

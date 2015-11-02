@@ -36,7 +36,7 @@ The value of `request.user` and `request.auth` for unauthenticated requests can 
 
 The default authentication schemes may be set globally, using the `DEFAULT_AUTHENTICATION` setting.  For example.
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'DEFAULT_AUTHENTICATION_CLASSES': (
             'rest_framework2.authentication.BasicAuthentication',
             'rest_framework2.authentication.SessionAuthentication',

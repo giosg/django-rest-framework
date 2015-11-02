@@ -87,7 +87,7 @@ The generic class based views `ListAPIView` and `ListCreateAPIView` provide pagi
 
 The default pagination style may be set globally, using the `DEFAULT_PAGINATION_SERIALIZER_CLASS`, `PAGINATE_BY`, `PAGINATE_BY_PARAM`, and `MAX_PAGINATE_BY` settings.  For example.
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'PAGINATE_BY': 10,                 # Default to 10
         'PAGINATE_BY_PARAM': 'page_size',  # Allow client to override, using `?page_size=xxx`.
         'MAX_PAGINATE_BY': 100             # Maximum limit allowed when using `?page_size=xxx`.
@@ -136,7 +136,7 @@ For example, to nest a pair of links labelled 'prev' and 'next', and set the nam
 
 To have your custom pagination serializer be used by default, use the `DEFAULT_PAGINATION_SERIALIZER_CLASS` setting:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'DEFAULT_PAGINATION_SERIALIZER_CLASS':
             'example_app.pagination.CustomPaginationSerializer',
     }

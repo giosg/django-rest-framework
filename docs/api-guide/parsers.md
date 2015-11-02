@@ -28,7 +28,7 @@ As an example, if you are sending `json` encoded data using jQuery with the [.aj
 
 The default set of parsers may be set globally, using the `DEFAULT_PARSER_CLASSES` setting.  For example, the following settings would allow requests with `YAML` content.
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'DEFAULT_PARSER_CLASSES': (
             'rest_framework2.parsers.YAMLParser',
         )

@@ -1,8 +1,8 @@
 """
-Settings for REST framework are all namespaced in the REST_FRAMEWORK setting.
+Settings for REST framework are all namespaced in the REST_FRAMEWORK2 setting.
 For example your project's `settings.py` file might look like this:
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK2 = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework2.renderers.JSONRenderer',
         'rest_framework2.renderers.YAMLRenderer',
@@ -24,7 +24,7 @@ from rest_framework2 import ISO_8601
 from rest_framework2.compat import importlib
 
 
-USER_SETTINGS = getattr(settings, 'REST_FRAMEWORK', None)
+USER_SETTINGS = getattr(settings, 'REST_FRAMEWORK2', None)
 
 DEFAULTS = {
     # Base API policies

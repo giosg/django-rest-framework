@@ -246,7 +246,7 @@ If you're testing views directly using `APIRequestFactory`, the responses that a
 
 The default format used to make test requests may be set using the `TEST_REQUEST_DEFAULT_FORMAT` setting key.  For example, to always use JSON for test requests by default instead of standard multipart form requests, set the following in your `settings.py` file:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         ...
         'TEST_REQUEST_DEFAULT_FORMAT': 'json'
     }
@@ -257,7 +257,7 @@ If you need to test requests using something other than multipart or json reques
 
 For example, to add support for using `format='yaml'` in test requests, you might have something like this in your `settings.py` file.
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         ...
         'TEST_REQUEST_RENDERER_CLASSES': (
             'rest_framework2.renderers.MultiPartRenderer',

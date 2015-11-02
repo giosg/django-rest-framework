@@ -87,7 +87,7 @@ As well as being able to override the default queryset, REST framework also incl
 
 The default filter backends may be set globally, using the `DEFAULT_FILTER_BACKENDS` setting.  For example.
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'DEFAULT_FILTER_BACKENDS': ('rest_framework2.filters.DjangoFilterBackend',)
     }
 

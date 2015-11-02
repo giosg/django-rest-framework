@@ -6,11 +6,11 @@
 >
 > &mdash; [The Zen of Python][cite]
 
-Configuration for REST framework is all namespaced inside a single Django setting, named `REST_FRAMEWORK`.
+Configuration for REST framework is all namespaced inside a single Django setting, named `REST_FRAMEWORK2`.
 
 For example your project's `settings.py` file might include something like this:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         'DEFAULT_RENDERER_CLASSES': (
             'rest_framework2.renderers.YAMLRenderer',
         ),
@@ -123,7 +123,7 @@ The name of a query parameter, which can be used by the client to override the d
 
 For example, given the following settings:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
     	'PAGINATE_BY': 10,
     	'PAGINATE_BY_PARAM': 'page_size',
     }
@@ -140,7 +140,7 @@ The maximum page size to allow when the page size is specified by the client.  I
 
 For example, given the following settings:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
     	'PAGINATE_BY': 10,
     	'PAGINATE_BY_PARAM': 'page_size',
         'MAX_PAGINATE_BY': 100

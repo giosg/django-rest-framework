@@ -99,7 +99,7 @@ INSTALLED_APPS = (
     'rest_framework2',
 )
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK2 = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [

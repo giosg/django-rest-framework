@@ -98,9 +98,9 @@ Let's take a look at a quick example of using REST framework to build a simple m
 
 We'll create a read-write API for accessing information on the users of our project.
 
-Any global settings for a REST framework API are kept in a single configuration dictionary named `REST_FRAMEWORK`.  Start off by adding the following to your `settings.py` module:
+Any global settings for a REST framework API are kept in a single configuration dictionary named `REST_FRAMEWORK2`.  Start off by adding the following to your `settings.py` module:
 
-    REST_FRAMEWORK = {
+    REST_FRAMEWORK2 = {
         # Use Django's standard `django.contrib.auth` permissions,
         # or allow read-only access for unauthenticated users.
         'DEFAULT_PERMISSION_CLASSES': [
