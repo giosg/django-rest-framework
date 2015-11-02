@@ -1,6 +1,9 @@
-# Django REST framework
+# Django REST framework 2
 
 [![build-status-image]][travis]
+
+**This is a custom fork of Django REST framework 2 that can be installed together with version 3.**
+This version is installed with name `rest_framework2`.
 
 **Awesome web-browseable Web APIs.**
 
@@ -33,7 +36,7 @@ There is a live example API for testing purposes, [available here][sandbox].
 
 Install using `pip`...
 
-    pip install djangorestframework
+    pip install git+https://github.com/giosg/django-rest-framework.git@rest_framework2
 
 Add `'rest_framework2'` to your `INSTALLED_APPS` setting.
 
