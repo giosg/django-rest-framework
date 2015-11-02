@@ -12,7 +12,7 @@ Permission checks are always run at the very start of the view, before any other
 
 ## How permissions are determined
 
-Permissions in REST framework are always defined as a list of permission classes.  
+Permissions in REST framework are always defined as a list of permission classes.
 
 Before running the main body of the view each permission in the list is checked.
 If any permission check fails an `exceptions.PermissionDenied` exception will be raised, and the main body of the view will not run.
@@ -48,22 +48,22 @@ The default permission policy may be set globally, using the `DEFAULT_PERMISSION
 
     REST_FRAMEWORK = {
         'DEFAULT_PERMISSION_CLASSES': (
-            'rest_framework.permissions.IsAuthenticated',
+            'rest_framework2.permissions.IsAuthenticated',
         )
     }
 
 If not specified, this setting defaults to allowing unrestricted access:
 
     'DEFAULT_PERMISSION_CLASSES': (
-       'rest_framework.permissions.AllowAny',
+       'rest_framework2.permissions.AllowAny',
     )
 
 You can also set the authentication policy on a per-view, or per-viewset basis,
 using the `APIView` class based views.
 
-    from rest_framework.permissions import IsAuthenticated
-	from rest_framework.response import Response
-	from rest_framework.views import APIView
+    from rest_framework2.permissions import IsAuthenticated
+	from rest_framework2.response import Response
+	from rest_framework2.views import APIView
 
     class ExampleView(APIView):
         permission_classes = (IsAuthenticated,)
@@ -195,7 +195,7 @@ For more details see the [2.2 release announcement][2.2-announcement].
 
 The following is an example of a permission class that checks the incoming request's IP address against a blacklist, and denies the request if the IP has been blacklisted.
 
-    from rest_framework import permissions
+    from rest_framework2 import permissions
 
     class BlacklistPermission(permissions.BasePermission):
         """
@@ -218,9 +218,9 @@ As well as global permissions, that are run against all incoming requests, you c
         def has_object_permission(self, request, view, obj):
             # Read permissions are allowed to any request,
             # so we'll always allow GET, HEAD or OPTIONS requests.
-            if request.method in permissions.SAFE_METHODS:            
+            if request.method in permissions.SAFE_METHODS:
                 return True
-    
+
             # Instance must have an attribute named `owner`.
             return obj.owner == request.user
 

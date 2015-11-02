@@ -5,7 +5,7 @@ Doesn't cover model serializers.
 """
 from __future__ import unicode_literals
 from django.test import TestCase
-from rest_framework import serializers
+from rest_framework2 import serializers
 from . import models
 
 

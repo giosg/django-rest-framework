@@ -29,8 +29,8 @@ The default throttling policy may be set globally, using the `DEFAULT_THROTTLE_C
 
     REST_FRAMEWORK = {
         'DEFAULT_THROTTLE_CLASSES': (
-            'rest_framework.throttling.AnonRateThrottle',
-            'rest_framework.throttling.UserRateThrottle'
+            'rest_framework2.throttling.AnonRateThrottle',
+            'rest_framework2.throttling.UserRateThrottle'
         ),
         'DEFAULT_THROTTLE_RATES': {
             'anon': '100/day',
@@ -43,9 +43,9 @@ The rate descriptions used in `DEFAULT_THROTTLE_RATES` may include `second`, `mi
 You can also set the throttling policy on a per-view or per-viewset basis,
 using the `APIView` class based views.
 
-	from rest_framework.response import Response
-    from rest_framework.throttling import UserRateThrottle
-	from rest_framework.views import APIView
+	from rest_framework2.response import Response
+    from rest_framework2.throttling import UserRateThrottle
+	from rest_framework2.views import APIView
 
     class ExampleView(APIView):
         throttle_classes = (UserRateThrottle,)
@@ -83,7 +83,7 @@ The throttle classes provided by REST framework use Django's cache backend.  You
 If you need to use a cache other than `'default'`, you can do so by creating a custom throttle class and setting the `cache` attribute.  For example:
 
     class CustomAnonRateThrottle(AnonRateThrottle):
-        cache = get_cache('alternate') 
+        cache = get_cache('alternate')
 
 You'll need to rememeber to also set your custom throttle class in the `'DEFAULT_THROTTLE_CLASSES'` settings key, or using the `throttle_classes` view attribute.
 
@@ -147,20 +147,20 @@ For example, given the following views...
     class ContactListView(APIView):
         throttle_scope = 'contacts'
         ...
-    
+
     class ContactDetailView(ApiView):
         throttle_scope = 'contacts'
         ...
 
-    class UploadView(APIView):        
+    class UploadView(APIView):
         throttle_scope = 'uploads'
         ...
-    
+
 ...and the following settings.
 
     REST_FRAMEWORK = {
         'DEFAULT_THROTTLE_CLASSES': (
-            'rest_framework.throttling.ScopedRateThrottle',
+            'rest_framework2.throttling.ScopedRateThrottle',
         ),
         'DEFAULT_THROTTLE_RATES': {
             'contacts': '1000/day',

@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework2 import generics
 from .models import NullableForeignKeySource
 from .serializers import NullableFKSourceSerializer
 

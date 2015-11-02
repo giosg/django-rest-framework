@@ -6,7 +6,7 @@ from django.test import TestCase
 from django.utils import unittest
 from django.utils.datastructures import MultiValueDict
 from django.utils.translation import ugettext_lazy as _
-from rest_framework import serializers, fields, relations
+from rest_framework2 import serializers, fields, relations
 from tests.models import (
     HasPositiveIntegerAsChoice, Album, ActionItem, Anchor, BasicModel,
     BlankFieldModel, BlogPost, BlogPostComment, Book, CallableDefaultValueModel,

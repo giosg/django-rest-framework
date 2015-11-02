@@ -3,10 +3,10 @@ from django.contrib.auth.models import User, Permission, Group
 from django.db import models
 from django.test import TestCase
 from django.utils import unittest
-from rest_framework import generics, status, permissions, authentication, HTTP_HEADER_ENCODING
-from rest_framework.compat import guardian, get_model_name
-from rest_framework.filters import DjangoObjectPermissionsFilter
-from rest_framework.test import APIRequestFactory
+from rest_framework2 import generics, status, permissions, authentication, HTTP_HEADER_ENCODING
+from rest_framework2.compat import guardian, get_model_name
+from rest_framework2.filters import DjangoObjectPermissionsFilter
+from rest_framework2.test import APIRequestFactory
 from tests.models import BasicModel
 import base64
 

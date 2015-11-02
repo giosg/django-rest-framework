@@ -16,7 +16,7 @@ Extends [Django's existing `RequestFactory` class][requestfactory].
 
 The `APIRequestFactory` class supports an almost identical API to Django's standard `RequestFactory` class.  This means the that standard `.get()`, `.post()`, `.put()`, `.patch()`, `.delete()`, `.head()` and `.options()` methods are all available.
 
-    from rest_framework.test import APIRequestFactory
+    from rest_framework2.test import APIRequestFactory
 
     # Using the standard RequestFactory API to create a form POST request
     factory = APIRequestFactory()
@@ -115,7 +115,7 @@ Extends [Django's existing `Client` class][client].
 
 The `APIClient` class supports the same request interface as `APIRequestFactory`.  This means the that standard `.get()`, `.post()`, `.put()`, `.patch()`, `.delete()`, `.head()` and `.options()` methods are all available.  For example:
 
-    from rest_framework.test import APIClient
+    from rest_framework2.test import APIClient
 
     client = APIClient()
     client.post('/notes/', {'title': 'new idea'}, format='json')
@@ -143,8 +143,8 @@ The `login` method is appropriate for testing APIs that use session authenticati
 
 The `credentials` method can be used to set headers that will then be included on all subsequent requests by the test client.
 
-    from rest_framework.authtoken.models import Token
-    from rest_framework.test import APIClient
+    from rest_framework2.authtoken.models import Token
+    from rest_framework2.test import APIClient
 
     # Include an appropriate `Authorization:` header on all requests.
     token = Token.objects.get(user__username='lauren')
@@ -170,7 +170,7 @@ This can be a useful shortcut if you're testing the API but don't want to have t
 
 To unauthenticate subsequent requests, call `force_authenticate` setting the user and/or token to `None`.
 
-    client.force_authenticate(user=None) 
+    client.force_authenticate(user=None)
 
 ## CSRF validation
 
@@ -196,8 +196,8 @@ REST framework includes the following test case classes, that mirror the existin
 You can use any of REST framework's test case classes as you would for the regular Django test case classes.  The `self.client` attribute will be an `APIClient` instance.
 
     from django.core.urlresolvers import reverse
-    from rest_framework import status
-    from rest_framework.test import APITestCase 
+    from rest_framework2 import status
+    from rest_framework2.test import APITestCase
 
     class AccountTests(APITestCase):
         def test_create_account(self):
@@ -260,9 +260,9 @@ For example, to add support for using `format='yaml'` in test requests, you migh
     REST_FRAMEWORK = {
         ...
         'TEST_REQUEST_RENDERER_CLASSES': (
-            'rest_framework.renderers.MultiPartRenderer',
-            'rest_framework.renderers.JSONRenderer',
-            'rest_framework.renderers.YAMLRenderer'
+            'rest_framework2.renderers.MultiPartRenderer',
+            'rest_framework2.renderers.JSONRenderer',
+            'rest_framework2.renderers.YAMLRenderer'
         )
     }
 

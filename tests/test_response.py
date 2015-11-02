@@ -3,18 +3,18 @@ from django.conf.urls import patterns, url, include
 from django.test import TestCase
 from django.utils import six
 from tests.models import BasicModel, BasicModelSerializer
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import generics
-from rest_framework import routers
-from rest_framework import status
-from rest_framework.renderers import (
+from rest_framework2.response import Response
+from rest_framework2.views import APIView
+from rest_framework2 import generics
+from rest_framework2 import routers
+from rest_framework2 import status
+from rest_framework2.renderers import (
     BaseRenderer,
     JSONRenderer,
     BrowsableAPIRenderer
 )
-from rest_framework import viewsets
-from rest_framework.settings import api_settings
+from rest_framework2 import viewsets
+from rest_framework2.settings import api_settings
 
 
 class MockPickleRenderer(BaseRenderer):
@@ -109,7 +109,7 @@ urlpatterns = patterns(
     url(r'^html1$', HTMLView1.as_view()),
     url(r'^html_new_model$', HTMLNewModelView.as_view()),
     url(r'^html_new_model_viewset', include(new_model_viewset_router.urls)),
-    url(r'^restframework', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^restframework', include('rest_framework2.urls', namespace='rest_framework2'))
 )
 
 

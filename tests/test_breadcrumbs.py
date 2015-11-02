@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 from django.conf.urls import patterns, url
 from django.test import TestCase
-from rest_framework.utils.breadcrumbs import get_breadcrumbs
-from rest_framework.views import APIView
+from rest_framework2.utils.breadcrumbs import get_breadcrumbs
+from rest_framework2.views import APIView
 
 
 class Root(APIView):

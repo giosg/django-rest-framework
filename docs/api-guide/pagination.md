@@ -6,7 +6,7 @@
 >
 > &mdash; [Django documentation][cite]
 
-REST framework includes a `PaginationSerializer` class that makes it easy to return paginated data in a way that can then be rendered to arbitrary media types. 
+REST framework includes a `PaginationSerializer` class that makes it easy to return paginated data in a way that can then be rendered to arbitrary media types.
 
 ## Paginating basic data
 
@@ -22,7 +22,7 @@ Let's start by taking a look at an example from the Django documentation.
 
 At this point we've got a page object.  If we wanted to return this page object as a JSON response, we'd need to provide the client with context such as next and previous links, so that it would be able to page through the remaining results.
 
-    from rest_framework.pagination import PaginationSerializer
+    from rest_framework2.pagination import PaginationSerializer
 
     serializer = PaginationSerializer(instance=page)
     serializer.data
@@ -33,7 +33,7 @@ The `context` argument of the `PaginationSerializer` class may optionally includ
     request = RequestFactory().get('/foobar')
     serializer = PaginationSerializer(instance=page, context={'request': request})
     serializer.data
-    # {'count': 4, 'next': 'http://testserver/foobar?page=2', 'previous': None, 'results': [u'john', u'paul']}    
+    # {'count': 4, 'next': 'http://testserver/foobar?page=2', 'previous': None, 'results': [u'john', u'paul']}
 
 We could now return that data in a `Response` object, and it would be rendered into the correct media type.
 
@@ -119,8 +119,8 @@ You can also override the name used for the object list field, by setting the `r
 
 For example, to nest a pair of links labelled 'prev' and 'next', and set the name for the results field to 'objects', you might use something like this.
 
-    from rest_framework import pagination
-    from rest_framework import serializers
+    from rest_framework2 import pagination
+    from rest_framework2 import serializers
 
     class LinksSerializer(serializers.Serializer):
         next = pagination.NextPageField(source='*')

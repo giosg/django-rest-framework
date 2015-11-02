@@ -4,9 +4,9 @@ from decimal import Decimal
 from django.core.paginator import Paginator
 from django.test import TestCase
 from django.utils import unittest
-from rest_framework import generics, status, pagination, filters, serializers
-from rest_framework.compat import django_filters
-from rest_framework.test import APIRequestFactory
+from rest_framework2 import generics, status, pagination, filters, serializers
+from rest_framework2.compat import django_filters
+from rest_framework2.test import APIRequestFactory
 from .models import BasicModel, FilterableItem
 
 factory = APIRequestFactory()

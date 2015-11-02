@@ -8,15 +8,15 @@ from django.db import models
 from django.test import TestCase
 from django.utils import six, unittest
 from django.utils.translation import ugettext_lazy as _
-from rest_framework import status, permissions
-from rest_framework.compat import yaml, etree, StringIO
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.renderers import BaseRenderer, JSONRenderer, YAMLRenderer, \
+from rest_framework2 import status, permissions
+from rest_framework2.compat import yaml, etree, StringIO
+from rest_framework2.response import Response
+from rest_framework2.views import APIView
+from rest_framework2.renderers import BaseRenderer, JSONRenderer, YAMLRenderer, \
     XMLRenderer, JSONPRenderer, BrowsableAPIRenderer, UnicodeJSONRenderer, UnicodeYAMLRenderer
-from rest_framework.parsers import YAMLParser, XMLParser
-from rest_framework.settings import api_settings
-from rest_framework.test import APIRequestFactory
+from rest_framework2.parsers import YAMLParser, XMLParser
+from rest_framework2.settings import api_settings
+from rest_framework2.test import APIRequestFactory
 from collections import MutableMapping
 import datetime
 import json
@@ -112,7 +112,7 @@ urlpatterns = patterns(
     url(r'^html$', HTMLView.as_view()),
     url(r'^html1$', HTMLView1.as_view()),
     url(r'^empty$', EmptyGETView.as_view()),
-    url(r'^api', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api', include('rest_framework2.urls', namespace='rest_framework2'))
 )
 
 

@@ -12,7 +12,7 @@ PYTEST_ARGS = {
     'fast': ['tests', '-q'],
 }
 
-FLAKE8_ARGS = ['rest_framework', 'tests', '--ignore=E501']
+FLAKE8_ARGS = ['rest_framework2', 'tests', '--ignore=E501']
 
 
 sys.path.append(os.path.dirname(__file__))
@@ -74,7 +74,7 @@ if __name__ == "__main__":
             expression = split_class_and_function(first_arg)
             pytest_args = ['tests', '-k', expression] + pytest_args[1:]
         elif is_class(first_arg) or is_function(first_arg):
-            # `runtests.py TestCase [flags]` 
+            # `runtests.py TestCase [flags]`
             # `runtests.py test_function [flags]`
             pytest_args = ['tests', '-k', pytest_args[0]] + pytest_args[1:]
     else:

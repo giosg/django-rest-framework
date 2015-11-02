@@ -10,7 +10,7 @@ Serializer fields handle converting between primitive values and internal dataty
 
 ---
 
-**Note:** The serializer fields are declared in fields.py, but by convention you should import them using `from rest_framework import serializers` and refer to fields as `serializers.<FieldName>`.
+**Note:** The serializer fields are declared in fields.py, but by convention you should import them using `from rest_framework2 import serializers` and refer to fields as `serializers.<FieldName>`.
 
 ---
 
@@ -62,7 +62,7 @@ A dictionary of error codes to error messages.
 ### `widget`
 
 Used only if rendering the field to HTML.
-This argument sets the widget that should be used to render the field. For more details, and a list of available widgets, see [the Django documentation on form widgets][django-widgets]. 
+This argument sets the widget that should be used to render the field. For more details, and a list of available widgets, see [the Django documentation on form widgets][django-widgets].
 
 ### `label`
 
@@ -98,7 +98,7 @@ For example, using the following model.
 
 A serializer definition that looked like this:
 
-    from rest_framework import serializers
+    from rest_framework2 import serializers
 
     class AccountSerializer(serializers.HyperlinkedModelSerializer):
         expired = serializers.Field(source='has_expired')
@@ -138,7 +138,7 @@ This is a read-only field.  It gets its value by calling a method on the seriali
 
     from django.contrib.auth.models import User
     from django.utils.timezone import now
-    from rest_framework import serializers
+    from rest_framework2 import serializers
 
     class UserSerializer(serializers.ModelSerializer):
         days_since_joined = serializers.SerializerMethodField('get_days_since_joined')

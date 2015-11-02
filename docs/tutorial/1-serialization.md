@@ -54,11 +54,11 @@ The simplest way to get up and running will probably be to use an `sqlite3` data
         }
     }
 
-We'll also need to add our new `snippets` app and the `rest_framework` app to `INSTALLED_APPS`.
+We'll also need to add our new `snippets` app and the `rest_framework2` app to `INSTALLED_APPS`.
 
     INSTALLED_APPS = (
         ...
-        'rest_framework',
+        'rest_framework2',
         'snippets',
     )
 
@@ -107,7 +107,7 @@ Don't forget to sync the database for the first time.
 The first thing we need to get started on our Web API is to provide a way of serializing and deserializing the snippet instances into representations such as `json`.  We can do this by declaring serializers that work very similar to Django's forms.  Create a file in the `snippets` directory named `serializers.py` and add the following.
 
     from django.forms import widgets
-    from rest_framework import serializers
+    from rest_framework2 import serializers
     from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 
 
@@ -147,7 +147,7 @@ The first part of the serializer class defines the fields that get serialized/de
 
 Notice that we can also use various attributes that would typically be used on form fields, such as `widget=widgets.Textarea`.  These can be used to control how the serializer should render when displayed as an HTML form.  This is particularly useful for controlling how the browsable API should be displayed, as we'll see later in the tutorial.
 
-We can actually also save ourselves some time by using the `ModelSerializer` class, as we'll see later, but for now we'll keep our serializer definition explicit.  
+We can actually also save ourselves some time by using the `ModelSerializer` class, as we'll see later, but for now we'll keep our serializer definition explicit.
 
 ## Working with Serializers
 
@@ -159,8 +159,8 @@ Okay, once we've got a few imports out of the way, let's create a couple of code
 
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
-    from rest_framework.renderers import JSONRenderer
-    from rest_framework.parsers import JSONParser
+    from rest_framework2.renderers import JSONRenderer
+    from rest_framework2.parsers import JSONParser
 
     snippet = Snippet(code='foo = "bar"\n')
     snippet.save()
@@ -184,7 +184,7 @@ Deserialization is similar.  First we parse a stream into Python native datatype
 
     # This import will use either `StringIO.StringIO` or `io.BytesIO`
     # as appropriate, depending on if we're running Python 2 or Python 3.
-    from rest_framework.compat import BytesIO
+    from rest_framework2.compat import BytesIO
 
     stream = BytesIO(content)
     data = JSONParser().parse(stream)
@@ -230,8 +230,8 @@ Edit the `snippets/views.py` file, and add the following.
 
     from django.http import HttpResponse
     from django.views.decorators.csrf import csrf_exempt
-    from rest_framework.renderers import JSONRenderer
-    from rest_framework.parsers import JSONParser
+    from rest_framework2.renderers import JSONRenderer
+    from rest_framework2.parsers import JSONParser
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
 

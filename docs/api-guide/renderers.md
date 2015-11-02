@@ -22,8 +22,8 @@ The default set of renderers may be set globally, using the `DEFAULT_RENDERER_CL
 
     REST_FRAMEWORK = {
         'DEFAULT_RENDERER_CLASSES': (
-            'rest_framework.renderers.YAMLRenderer',
-            'rest_framework.renderers.BrowsableAPIRenderer',
+            'rest_framework2.renderers.YAMLRenderer',
+            'rest_framework2.renderers.BrowsableAPIRenderer',
         )
     }
 
@@ -31,9 +31,9 @@ You can also set the renderers used for an individual view, or viewset,
 using the `APIView` class based views.
 
     from django.contrib.auth.models import User
-    from rest_framework.renderers import JSONRenderer, YAMLRenderer
-    from rest_framework.response import Response
-    from rest_framework.views import APIView
+    from rest_framework2.renderers import JSONRenderer, YAMLRenderer
+    from rest_framework2.response import Response
+    from rest_framework2.views import APIView
 
     class UserCountView(APIView):
         """
@@ -134,7 +134,7 @@ The `jsonp` approach is essentially a browser hack, and is [only appropriate for
 
 ## YAMLRenderer
 
-Renders the request data into `YAML`. 
+Renders the request data into `YAML`.
 
 Requires the `pyyaml` package to be installed.
 
@@ -150,7 +150,7 @@ Note that non-ascii characters will be rendered using `\uXXXX` character escape.
 
 ## UnicodeYAMLRenderer
 
-Renders the request data into `YAML`. 
+Renders the request data into `YAML`.
 
 Requires the `pyyaml` package to be installed.
 
@@ -203,7 +203,7 @@ An example of a view that uses `TemplateHTMLRenderer`:
         def get(self, request, *args, **kwargs):
             self.object = self.get_object()
             return Response({'user': self.object}, template_name='user_detail.html')
- 
+
 You can use `TemplateHTMLRenderer` either to return regular HTML pages using REST framework, or to return both HTML and API responses from a single endpoint.
 
 If you're building websites that use `TemplateHTMLRenderer` along with other renderer classes, you should consider listing `TemplateHTMLRenderer` as the first class in the `renderer_classes` list, so that it will be prioritised first even for browsers that send poorly formed `ACCEPT:` headers.
@@ -224,7 +224,7 @@ An example of a view that uses `TemplateHTMLRenderer`:
 
     @api_view(('GET',))
     @renderer_classes((StaticHTMLRenderer,))
-    def simple_html_view(request): 
+    def simple_html_view(request):
         data = '<html><body><h1>Hello, world</h1></body></html>'
         return Response(data)
 
@@ -250,7 +250,7 @@ Note that the template used by the `HTMLFormRenderer` class, and the context sub
 
 **.charset**: `utf-8`
 
-**.template**: `'rest_framework/form.html'`
+**.template**: `'rest_framework2/form.html'`
 
 ## BrowsableAPIRenderer
 
@@ -262,7 +262,7 @@ Renders data into HTML for the Browsable API.  This renderer will determine whic
 
 **.charset**: `utf-8`
 
-**.template**: `'rest_framework/api.html'`
+**.template**: `'rest_framework2/api.html'`
 
 #### Customizing BrowsableAPIRenderer
 
@@ -313,13 +313,13 @@ By default this will include the following keys: `view`, `request`, `response`, 
 The following is an example plaintext renderer that will return a response with the `data` parameter as the content of the response.
 
     from django.utils.encoding import smart_unicode
-    from rest_framework import renderers
+    from rest_framework2 import renderers
 
 
     class PlainTextRenderer(renderers.BaseRenderer):
         media_type = 'text/plain'
         format = 'txt'
-        
+
         def render(self, data, media_type=None, renderer_context=None):
             return data.encode(self.charset)
 
@@ -359,7 +359,7 @@ You can do some pretty flexible things using REST framework's renderers.  Some e
 * Provide either flat or nested representations from the same endpoint, depending on the requested media type.
 * Serve both regular HTML webpages, and JSON based API responses from the same endpoints.
 * Specify multiple types of HTML representation for API clients to use.
-* Underspecify a renderer's media type, such as using `media_type = 'image/*'`, and use the `Accept` header to vary the encoding of the response. 
+* Underspecify a renderer's media type, such as using `media_type = 'image/*'`, and use the `Accept` header to vary the encoding of the response.
 
 ## Varying behaviour by media type
 

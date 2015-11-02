@@ -6,9 +6,9 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import unittest
 from django.conf.urls import patterns, url
-from rest_framework import generics, serializers, status, filters
-from rest_framework.compat import django_filters
-from rest_framework.test import APIRequestFactory
+from rest_framework2 import generics, serializers, status, filters
+from rest_framework2.compat import django_filters
+from rest_framework2.test import APIRequestFactory
 from .models import BaseFilterableItem, FilterableItem, BasicModel
 from .utils import temporary_setting
 

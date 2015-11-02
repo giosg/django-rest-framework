@@ -6,10 +6,10 @@ At the moment relationships within our API are represented by using primary keys
 
 Right now we have endpoints for 'snippets' and 'users', but we don't have a single entry point to our API.  To create one, we'll use a regular function-based view and the `@api_view` decorator we introduced earlier. In your `snippets/views.py` add:
 
-    from rest_framework import renderers
-    from rest_framework.decorators import api_view
-    from rest_framework.response import Response
-    from rest_framework.reverse import reverse
+    from rest_framework2 import renderers
+    from rest_framework2.decorators import api_view
+    from rest_framework2.response import Response
+    from rest_framework2.reverse import reverse
 
 
     @api_view(('GET',))
@@ -31,8 +31,8 @@ The other thing we need to consider when creating the code highlight view is tha
 
 Instead of using a concrete generic view, we'll use the base class for representing instances, and create our own `.get()` method.  In your `snippets/views.py` add:
 
-    from rest_framework import renderers
-    from rest_framework.response import Response
+    from rest_framework2 import renderers
+    from rest_framework2.response import Response
 
     class SnippetHighlight(generics.GenericAPIView):
         queryset = Snippet.objects.all()
@@ -129,8 +129,8 @@ After adding all those names into our URLconf, our final `snippets/urls.py` file
 
     # Login and logout views for the browsable API
     urlpatterns += [
-        url(r'^api-auth/', include('rest_framework.urls',
-                                   namespace='rest_framework')),
+        url(r'^api-auth/', include('rest_framework2.urls',
+                                   namespace='rest_framework2')),
     ]
 
 ## Adding pagination

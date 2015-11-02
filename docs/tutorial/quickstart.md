@@ -37,7 +37,7 @@ Once you've set up a database and got everything synced and ready to go, open up
 First up we're going to define some serializers. Let's create a new module named `tutorial/quickstart/serializers.py` that we'll use for our data representations.
 
     from django.contrib.auth.models import User, Group
-    from rest_framework import serializers
+    from rest_framework2 import serializers
 
 
     class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -58,7 +58,7 @@ Notice that we're using hyperlinked relations in this case, with `HyperlinkedMod
 Right, we'd better write some views then.  Open `tutorial/quickstart/views.py` and get typing.
 
     from django.contrib.auth.models import User, Group
-    from rest_framework import viewsets
+    from rest_framework2 import viewsets
     from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
 
 
@@ -90,7 +90,7 @@ For trivial cases you can simply set a `model` attribute on the `ViewSet` class 
 Okay, now let's wire up the API URLs.  On to `tutorial/urls.py`...
 
     from django.conf.urls import url, include
-    from rest_framework import routers
+    from rest_framework2 import routers
     from tutorial.quickstart import views
 
     router = routers.DefaultRouter()
@@ -101,7 +101,7 @@ Okay, now let's wire up the API URLs.  On to `tutorial/urls.py`...
     # Additionally, we include login URLs for the browseable API.
     urlpatterns = [
         url(r'^', include(router.urls)),
-        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+        url(r'^api-auth/', include('rest_framework2.urls', namespace='rest_framework2'))
     ]
 
 Because we're using viewsets instead of views, we can automatically generate the URL conf for our API, by simply registering the viewsets with a router class.
@@ -116,11 +116,11 @@ We'd also like to set a few global settings.  We'd like to turn on pagination, a
 
     INSTALLED_APPS = (
         ...
-        'rest_framework',
+        'rest_framework2',
     )
 
     REST_FRAMEWORK = {
-        'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+        'DEFAULT_PERMISSION_CLASSES': ('rest_framework2.permissions.IsAdminUser',),
         'PAGINATE_BY': 10
     }
 

@@ -5,13 +5,13 @@ from django.http import HttpResponse
 from django.test import TestCase
 from django.utils import six, unittest
 from django.utils.http import urlencode
-from rest_framework import HTTP_HEADER_ENCODING
-from rest_framework import exceptions
-from rest_framework import permissions
-from rest_framework import renderers
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.authentication import (
+from rest_framework2 import HTTP_HEADER_ENCODING
+from rest_framework2 import exceptions
+from rest_framework2 import permissions
+from rest_framework2 import renderers
+from rest_framework2.response import Response
+from rest_framework2 import status
+from rest_framework2.authentication import (
     BaseAuthentication,
     TokenAuthentication,
     BasicAuthentication,
@@ -19,11 +19,11 @@ from rest_framework.authentication import (
     OAuthAuthentication,
     OAuth2Authentication
 )
-from rest_framework.authtoken.models import Token
-from rest_framework.compat import oauth2_provider, oauth2_provider_scope
-from rest_framework.compat import oauth, oauth_provider
-from rest_framework.test import APIRequestFactory, APIClient
-from rest_framework.views import APIView
+from rest_framework2.authtoken.models import Token
+from rest_framework2.compat import oauth2_provider, oauth2_provider_scope
+from rest_framework2.compat import oauth, oauth_provider
+from rest_framework2.test import APIRequestFactory, APIClient
+from rest_framework2.views import APIView
 import base64
 import time
 import datetime
@@ -49,7 +49,7 @@ urlpatterns = patterns(
     (r'^session/$', MockView.as_view(authentication_classes=[SessionAuthentication])),
     (r'^basic/$', MockView.as_view(authentication_classes=[BasicAuthentication])),
     (r'^token/$', MockView.as_view(authentication_classes=[TokenAuthentication])),
-    (r'^auth-token/$', 'rest_framework.authtoken.views.obtain_auth_token'),
+    (r'^auth-token/$', 'rest_framework2.authtoken.views.obtain_auth_token'),
     (r'^oauth/$', MockView.as_view(authentication_classes=[OAuthAuthentication])),
     (
         r'^oauth-with-scope/$',
@@ -58,7 +58,7 @@ urlpatterns = patterns(
             permission_classes=[permissions.TokenHasReadWriteScope]
         )
     ),
-    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^auth/', include('rest_framework2.urls', namespace='rest_framework2'))
 )
 
 

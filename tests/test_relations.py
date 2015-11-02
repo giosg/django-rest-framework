@@ -6,7 +6,7 @@ from django import get_version
 from django.db import models
 from django.test import TestCase
 from django.utils import unittest
-from rest_framework import serializers
+from rest_framework2 import serializers
 from tests.models import BlogPost
 
 

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from rest_framework.compat import StringIO
+from rest_framework2.compat import StringIO
 from django import forms
 from django.core.files.uploadhandler import MemoryFileUploadHandler
 from django.test import TestCase
 from django.utils import unittest
-from rest_framework.compat import etree
-from rest_framework.parsers import FormParser, FileUploadParser
-from rest_framework.parsers import XMLParser
+from rest_framework2.compat import etree
+from rest_framework2.parsers import FormParser, FileUploadParser
+from rest_framework2.parsers import XMLParser
 import datetime
 
 

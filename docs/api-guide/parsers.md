@@ -30,16 +30,16 @@ The default set of parsers may be set globally, using the `DEFAULT_PARSER_CLASSE
 
     REST_FRAMEWORK = {
         'DEFAULT_PARSER_CLASSES': (
-            'rest_framework.parsers.YAMLParser',
+            'rest_framework2.parsers.YAMLParser',
         )
     }
 
 You can also set the parsers used for an individual view, or viewset,
 using the `APIView` class based views.
 
-	from rest_framework.parsers import YAMLParser
-	from rest_framework.response import Response
-    from rest_framework.views import APIView
+	from rest_framework2.parsers import YAMLParser
+	from rest_framework2.response import Response
+    from rest_framework2.views import APIView
 
     class ExampleView(APIView):
         """
@@ -161,7 +161,7 @@ By default this will include the following keys: `view`, `request`, `args`, `kwa
 
 ## Example
 
-The following is an example plaintext parser that will populate the `request.DATA` property with a string representing the body of the request. 
+The following is an example plaintext parser that will populate the `request.DATA` property with a string representing the body of the request.
 
     class PlainTextParser(BaseParser):
     """

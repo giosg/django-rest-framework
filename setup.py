@@ -55,7 +55,7 @@ def get_package_data(package):
     return {package: filepaths}
 
 
-version = get_version('rest_framework')
+version = get_version('rest_framework2')
 
 
 if sys.argv[-1] == 'publish':
@@ -81,8 +81,8 @@ setup(
     description='Web APIs for Django, made easy.',
     author='Tom Christie',
     author_email='tom@tomchristie.com',  # SEE NOTE BELOW (*)
-    packages=get_packages('rest_framework'),
-    package_data=get_package_data('rest_framework'),
+    packages=get_packages('rest_framework2'),
+    package_data=get_package_data('rest_framework2'),
     cmdclass={'test': PyTest},
     install_requires=[],
     classifiers=[

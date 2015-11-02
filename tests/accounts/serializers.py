@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework2 import serializers
 
 from tests.accounts.models import Account
 from tests.users.serializers import UserSerializer

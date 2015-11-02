@@ -1,10 +1,10 @@
 from __future__ import unicode_literals
 import json
 from django.test import TestCase
-from rest_framework import generics, status, serializers
+from rest_framework2 import generics, status, serializers
 from django.conf.urls import patterns, url
-from rest_framework.settings import api_settings
-from rest_framework.test import APIRequestFactory
+from rest_framework2.settings import api_settings
+from rest_framework2.test import APIRequestFactory
 from tests.models import (
     Anchor, BasicModel, ManyToManyModel, BlogPost, BlogPostComment,
     Album, Photo, OptionalRelationModel
