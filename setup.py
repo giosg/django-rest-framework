@@ -74,7 +74,7 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-    name='djangorestframework',
+    name='djangorestframework2',
     version=version,
     url='http://www.django-rest-framework.org',
     license='BSD',
